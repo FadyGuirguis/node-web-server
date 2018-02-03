@@ -23,16 +23,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  if (req.url === '/maintenance') {
-    res.render('maintenance.hbs', {
-      title: 'Maintenance'
-    });
-  }
-  else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if (req.url === '/maintenance') {
+//     res.render('maintenance.hbs', {
+//       title: 'Maintenance'
+//     });
+//   }
+//   else {
+//     next();
+//   }
+// });
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
@@ -53,6 +53,12 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     title: 'About Page'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    title: 'Projects Portfolio'
   });
 });
 
